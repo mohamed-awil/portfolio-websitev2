@@ -9,24 +9,33 @@
   --bg: #fefefe;
   --surface: #f8f8f8;
   --text: #202020;
+--skill-color: #0f0f0f;
+--here-me: #fefefe;
+--svg-path-color: #0f0f0f;
+
 
   /* Gradients */
   --heading-gradient: linear-gradient(to right, #5dd62c, #0f0f0f);
 
-  --icons-gradient: linear-gradient(#5dd62c, #0f0f0f);
+  --icons-gradient: linear-gradient(to right, #5dd62c, #0f0f0f);
 }
 
-.dark {
+.dark-mode {
   /* Dark Mode */
   --bg: #0f0f0f;
   --surface: #202020;
   --text: #fefefe;
+  --skill-color: #f8f8f8;
+  --here-me: #202020;
+  --svg-path-color: #fefefe;
 
   /* Gradients */
-  --heading-gradient: linear-gradient(#5dd62c, #f8f8f8);
+  --heading-gradient: linear-gradient(to right, #5dd62c, #f8f8f8);
 
-  --icons-gradient: linear-gradient(#5dd62c, #f8f8f8);
+  --icons-gradient: linear-gradient(to right, #5dd62c, #f8f8f8);
 }
+
+
 
 * {
   padding: 0;
@@ -40,14 +49,13 @@ img {
 
 body {
   font-family: "Poppins", sans-serif;
-
-  background-color: var(--);
+  background-color: var(--bg);
 }
 
 .header {
-  position: sticky;
+ position: sticky;
   top: 0;
-  /* right: 0; */
+  right: 0;
   z-index: 100;
   height: 4rem;
   background-color: var(--surface);
@@ -57,39 +65,42 @@ body {
   padding-inline: 50px;
 }
 
-.header .mobile-menu {
-  display: none;
-}
-
-.header .desktop-menu .nav-links {
+.header .menu .nav-links {
   display: flex;
   gap: 1.5rem;
   align-items: center;
   justify-content: center;
+
 }
 
-/* .header .logo {
-  max-width: 275px;
-} */
 .header .logo h1 {
   font-size: 2.25rem;
   font-weight: 800;
   color: var(--primary);
 }
 
-.header .desktop-menu .nav-links li {
+.header .menu .nav-links li {
   list-style: none;
 }
 
-.header .desktop-menu .nav-links li a {
+.header .menu .nav-links li a {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.2;
   text-decoration: none;
-  color: #0f0f0f;
+  color: var(--text);
 }
-.header .desktop-menu .nav-links li .h-me-btn {
-  background-color: #5dd62c;
+.header .menu .nav-links :nth-child(1) a {
+  color: var(--primary-dark);
+ 
+}
+.header .menu .nav-links :nth-child(1) a:hover {
+  color: var(--text);
+ 
+}
+
+.header .menu .nav-links  :nth-child(6) a  {
+  background-color: var(--primary);
   padding-block: 10px;
   padding-inline: 24px;
   border-radius: 8px;
@@ -100,28 +111,36 @@ body {
   align-items: center;
   justify-content: center;
 }
-.header .desktop-menu .nav-links li .h-me-btn:hover {
-  background-color: #337418;
-  color: #f8f8f8;
+.header .menu .nav-links :nth-child(6) a:hover {
+  /* background-color: var(--primary-dark); */
+  color: var(--here-me);
   transform: translateY(-5px) scale(1.05);
   box-shadow: -8px 10px 25px -12px rgb(93, 214, 44);
 }
 
-.header .desktop-menu .nav-links li a:hover {
-  color: #337418;
+.header .menu .nav-links li a:hover {
+  color: var(--primary-dark);
 }
 
-.header .desktop-menu .nav-links li #home {
+/* .header .menu .nav-links li #home {
   color: #337418;
+} */
+
+/* .header .menu .nav-links li #home:hover {
+  color: #f8f8f8;
+} */
+.header #themeBtn {
+  background: transparent;
+  border: none;
+}
+#themeBtn i{
+  font-size: 24px;
+  color: var(--primary);
 }
 
-.header .desktop-menu .nav-links li #home:hover {
-  color: #0f0f0f;
-}
 
 main .home {
   min-height: calc(100vh - 4rem);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,7 +190,7 @@ main .home {
   width: 0;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid #5dd62c;
+  border-right: 3px solid var(--primary);
   animation:
     typing 6s steps(11) infinite,
     blink 0.7s infinite;
@@ -195,7 +214,7 @@ main .home {
 @keyframes blink {
   0%,
   100% {
-    border-color: #5dd62c;
+    border-color: var(--primary);
   }
   50% {
     border-color: transparent;
@@ -206,13 +225,13 @@ main .home {
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.4;
-  color: #202020;
+  color: var(--text);
 }
 
 .home .text-info .btn {
   font-size: 1rem;
-  background-color: #5dd62c;
-  color: #0f0f0f;
+  background-color: var(--primary);
+  color: var(--text);
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -222,8 +241,8 @@ main .home {
 }
 
 .home .text-info .btn-container a:nth-child(1):hover {
-  background-color: #337418;
-  color: #ffffff;
+  background-color: var(--primary-dark);
+  color: var(--surface);
   /* box-shadow: 0px 0px 8px 1px rgb(248, 248, 248); */
 }
 
@@ -232,8 +251,8 @@ main .home {
   border: 1px solid #202020;
 }
 .home .text-info .btn-container a:nth-child(2):hover {
-  background-color: #337418;
-  color: #fefefe;
+  background-color: var(--primary-dark);
+  color: var(--surface);
   border: none;
   /* box-shadow: 0px 0px 8px 1px rgb(93, 214, 44, 0.5); */
 }
@@ -257,8 +276,19 @@ main .home {
   max-width: 500px;
   height: auto;
   display: block;
-  border-bottom: 4px solid transparent;
-  border-image: linear-gradient(to right, transparent, #0f0f0f, transparent) 1;
+  /* border-bottom: 4px solid transparent;
+  border-image: linear-gradient(to right, transparent, #0f0f0f, transparent) 1; */
+    -webkit-mask-image: linear-gradient(
+        to top,
+        transparent,
+        black 35%
+    );
+
+    mask-image: linear-gradient(
+        to top,
+        transparent,
+        black 35%
+    );
 }
 
 .slide {
@@ -322,16 +352,16 @@ main .home {
 }
 
 .home .container .mini-follow .routine {
-  color: #0f0f0f;
+  color: var(--text);
   cursor: pointer;
   letter-spacing: 1px;
 }
 .home .container .mini-follow .routine:hover {
-  color: #5dd62c;
+  color: var(--primary);
 }
 
 .home .container .mini-follow .routine i {
-  color: #5dd62c;
+  color: var(--primary);
   font-size: 24px;
 }
 
@@ -396,7 +426,7 @@ main .about {
 }
 
 .my-svg path {
-  fill: #0f0f0f;
+  fill: var(--svg-path-color);
 }
 
 @keyframes up-down {
@@ -445,7 +475,7 @@ main .about {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #5dd62c, #0f0f0f);
+  background: var(--heading-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -453,7 +483,7 @@ main .about {
 .about .about-content .about-text-info h3 {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #202020;
+  color: var(--text);
   line-height: 1.4;
   /* background: linear-gradient(to right, #337418, #5dd62c, #f8f8f8);
   -webkit-background-clip: text;
@@ -464,7 +494,7 @@ main .about {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #202020;
+  color: var(--text);
 }
 
 main .skills {
@@ -502,7 +532,7 @@ main .skills {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #5dd62c, #0f0f0f);
+  background: var(--heading-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -512,7 +542,7 @@ main .skills {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #202020;
+  color: var(--text);
   max-width: 500px;
 }
 
@@ -527,7 +557,7 @@ main .skills {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #fefefe;
+  background-color: var(--surface);
   max-width: 400px;
   position: relative;
   padding-inline: 10px;
@@ -550,7 +580,7 @@ main .skills {
 .skills .container .skills-content .skills-container .skill .skill-title i {
   font-size: 50px;
   animation: rotate 10s linear infinite;
-  background: linear-gradient(to right, #5dd62c, #0f0f0f);
+  background: var(--icons-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: rotateY('angle');
@@ -603,37 +633,37 @@ main .skills {
 .skill .skill-percentage .html-p {
   height: 5px;
   width: 100%;
-  background: linear-gradient(to right, #5dd62c 80%, #f8f8f8 20%);
+  background: linear-gradient(to right, #5dd62c 80%, var(--skill-color) 20%);
   border-radius: 10px;
 }
 .skill .skill-percentage .css-p {
   height: 5px;
   width: 100%;
-  background: linear-gradient(to right, #5dd62c 85%, #f8f8f8 15%);
+  background: linear-gradient(to right, #5dd62c 85%, var(--skill-color) 15%);
   border-radius: 10px;
 }
 .skill .skill-percentage .js-p {
   height: 5px;
   width: 100%;
-  background: linear-gradient(to right, #5dd62c 80%, #f8f8f8 20%);
+  background: linear-gradient(to right, #5dd62c 80%, var(--skill-color)  20%);
   border-radius: 10px;
 }
 .skill .skill-percentage .gh-p {
   height: 5px;
   width: 100%;
-  background: linear-gradient(to right, #5dd62c 75%, #f8f8f8 25%);
+  background: linear-gradient(to right, #5dd62c 75%, var(--skill-color) 25%);
   border-radius: 10px;
 }
 .skill .skill-percentage .ps-p {
   height: 5px;
   width: 100%;
-  background: linear-gradient(to right, #5dd62c 80%, #f8f8f8 20%);
+  background: linear-gradient(to right, #5dd62c 80%, var(--skill-color) 20%);
   border-radius: 10px;
 }
 .skill .skill-percentage .ai-p {
   height: 5px;
   width: 100%;
-  background: linear-gradient(to right, #5dd62c 95%, #f8f8f8 5%);
+  background: linear-gradient(to right, #5dd62c 95%, var(--skill-color) 5%);
   border-radius: 10px;
 }
 
@@ -667,7 +697,7 @@ main .projects .container .projects-content .projects-text-info h2 {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #5dd62c, #0f0f0f);
+  background: var(--heading-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -676,7 +706,7 @@ main .projects .container .projects-content .projects-text-info p {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #202020;
+  color: var(--text);
   max-width: 500px;
 }
 
@@ -686,7 +716,7 @@ main .projects .container .projects-content .projects-cards {
   gap: 24px;
 }
 main .projects .container .projects-content .projects-cards .project {
-  background-color: #fefefe;
+  background-color: var(--surface);
   padding: 20px;
   border-radius: 15px;
   box-shadow: -8px 10px 25px -20px rgb(93, 214, 44);
@@ -710,12 +740,12 @@ main .projects .container .projects-content .projects-cards .project img {
 main .projects .container .projects-content .projects-cards .project h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #202020;
+  color: var(--text);
 }
 main .projects .container .projects-content .projects-cards .project p {
   font-size: 1rem;
   font-weight: 400;
-  color: #202020;
+  color: var(--text);
   line-height: 1.6;
 }
 main
@@ -790,7 +820,7 @@ main .contact .container .contact-title h2 {
   text-align: center;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #5dd62c, #0f0f0f);
+  background: var(--heading-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -799,7 +829,7 @@ main .contact .container .contact-title p {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #202020;
+  color: var(--text);
   max-width: 500px;
 }
 
@@ -809,7 +839,7 @@ main .contact .contact-container {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #fefefe;
+  background-color: var(--surface);
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -845,7 +875,7 @@ main .contact .contact-container .contact-info h2 {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.1;
-  background: linear-gradient(to right, #5dd62c, #0f0f0f);
+  background: var(--heading-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -863,7 +893,7 @@ main .contact .contact-container .contact-info .contact-item h3 {
 main .contact .contact-container .contact-info .contact-item p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #202020;
+  color: var(--text);
   font-weight: 400;
 }
 main .contact .contact-container .contact-info .social-icons h3 {
@@ -879,7 +909,7 @@ main .contact .contact-container .contact-info .social-icons a {
   font-weight: 200;
   text-decoration: none;
 
-  background: linear-gradient(to right, #5dd62c, #0f0f0f);
+  background: var(--icons-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -910,7 +940,7 @@ main .contact .contact-container .input-group {
 main .contact .contact-container .input-group label {
   font-size: 1rem;
   font-weight: 500;
-  color: #202020;
+  color: var(--text);
 }
 
 .input-group input,
@@ -920,8 +950,8 @@ main .contact .contact-container .input-group label {
   border: none;
   outline: none;
   border-radius: 5px;
-  background: #f8f8f8;
-  color: #0f0f0f;
+  background: var(--bg);
+  color: var(--text);
   box-shadow: -8px 10px 25px -20px rgb(93, 214, 44);
 }
 
@@ -935,7 +965,7 @@ main .contact-form .send-btn {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background: #5dd62c;
+  background: var(--primary);
   color: #0f0f0f;
   cursor: pointer;
   font-size: 1rem;
@@ -947,7 +977,7 @@ main .contact-form .send-btn i {
   font-weight: 900;
 }
 main .contact-form .send-btn:hover {
-  background: #337418;
+  background: var(--primary-dark);
   color: #fefefe;
   transform: translateY(-5px);
   box-shadow: -8px 10px 25px -12px rgb(93, 214, 44);
@@ -955,7 +985,7 @@ main .contact-form .send-btn:hover {
 
 @media (max-width: 768px) {
   /* header */
-  .header .desktop-menu {
+.header .menu {
     display: none;
   }
 
@@ -997,9 +1027,9 @@ main .contact-form .send-btn:hover {
     /* animation: rotateImage 10s linear infinite; */
   }
 
-  .my-svg path {
+  /* .my-svg path {
     fill: #337418;
-  }
+  } */
 
   /* skills section */
 
@@ -1068,8 +1098,8 @@ main .contact-form .send-btn:hover {
   .home .text-info h2 {
     font-size: 1.25rem;
     font-weight: 500;
-    line-height: 1.1;
-    color: #202020;
+    line-height: 1.2;
+    
   }
 
   .home .container .home-content .profile-image {
@@ -1081,8 +1111,7 @@ main .contact-form .send-btn:hover {
   }
 
   .home .container .mini-follow .routine {
-    color: #0f0f0f;
-    cursor: pointer;
+   
     letter-spacing: 1px;
     font-size: 0.75rem;
   }
@@ -1107,14 +1136,14 @@ main .contact-form .send-btn:hover {
   .path-container .my-svg {
     width: 250px;
     position: absolute;
-    right: 70px;
+    right: 60px;
     bottom: -50px;
     animation: up-down 2s infinite;
   }
 
-  .my-svg path {
+  /* .my-svg path {
     fill: #5dd62c;
-  }
+  } */
 
   /* skills */
 
