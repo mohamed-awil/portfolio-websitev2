@@ -1,16 +1,29 @@
 const themeBtn = document.getElementById("themeBtn");
-const icon = themeBtn.querySelector("i");
+const themeicon = themeBtn.querySelector("i");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.querySelector(".nav-links");
+const mobileMenuIcon = menuBtn.querySelector("i");
 
 themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
 
-    document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    themeicon.classList.remove("fa-moon");
+    themeicon.classList.add("fa-sun");
+  } else {
+    themeicon.classList.remove("fa-sun");
+    themeicon.classList.add("fa-moon");
+  }
+});
 
-    if(document.body.classList.contains("dark-mode")){
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-    }else{
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-    }
+menuBtn.addEventListener("click", function () {
+  navLinks.classList.toggle("active");
 
+  if (navLinks.classList.contains("active")) {
+    mobileMenuIcon.classList.remove("fa-bars");
+    mobileMenuIcon.classList.add("fa-xmark");
+  } else {
+    mobileMenuIcon.classList.remove("fa-xmark");
+    mobileMenuIcon.classList.add("fa-bars");
+  }
 });
