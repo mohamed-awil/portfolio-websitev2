@@ -16,7 +16,7 @@ themeBtn.addEventListener("click", () => {
   }
 });
 
-menuBtn.addEventListener("click", function () {
+menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 
   if (navLinks.classList.contains("active")) {

@@ -578,30 +578,35 @@ main .skills {
   background: linear-gradient(to right, #5dd62c 80%, var(--skill-color) 20%);
   border-radius: 10px;
 }
+
 .skill .skill-percentage .css-p {
   height: 5px;
   width: 100%;
   background: linear-gradient(to right, #5dd62c 85%, var(--skill-color) 15%);
   border-radius: 10px;
 }
+
 .skill .skill-percentage .js-p {
   height: 5px;
   width: 100%;
   background: linear-gradient(to right, #5dd62c 80%, var(--skill-color) 20%);
   border-radius: 10px;
 }
+
 .skill .skill-percentage .gh-p {
   height: 5px;
   width: 100%;
   background: linear-gradient(to right, #5dd62c 75%, var(--skill-color) 25%);
   border-radius: 10px;
 }
+
 .skill .skill-percentage .ps-p {
   height: 5px;
   width: 100%;
   background: linear-gradient(to right, #5dd62c 80%, var(--skill-color) 20%);
   border-radius: 10px;
 }
+
 .skill .skill-percentage .ai-p {
   height: 5px;
   width: 100%;
@@ -1061,22 +1066,27 @@ footer .container .footer-container .footer-bottom {
   .header .menu .nav-links {
     display: none;
   }
+  .header .menu .nav-links a {
+    font-size: 1.25rem;
+  }
 
   .header .menu .nav-links.active {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    width: 80%;
+    gap: 20px;
+    width: 90%;
     position: absolute;
     top: 5rem;
-    left: 10%;
+    left: 5%;
     background-color: var(--surface);
-    padding: 1.25rem;
+    padding: 20px;
     border-radius: 5px;
   }
+
   .header .menu .nav-links :nth-child(6) {
     width: 100%;
   }
+
   .header .menu .nav-links :nth-child(6) a {
     width: 100%;
   }
